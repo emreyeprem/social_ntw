@@ -34,14 +34,14 @@ const Login = ({ login, isAuthenticated }) => {
             <form className="form" onSubmit={e => onSubmit(e)}>
              <div className="form-group">
                 <input type="email" placeholder="Email Address"
-                name="email" value={email}
-                onChange={e => onChange(e)} required />
+                        name="email" value={email}
+                        onChange={e => onChange(e)} required />
                 </div>
                 <div className="form-group">
                     <input type="password" placeholder="Password"
-                name="password" minLength="6"
-                value={password}
-                onChange={e => onChange(e)} />
+                            name="password" minLength="6"
+                            value={password}
+                            onChange={e => onChange(e)} />
                 </div>
                 <input type="submit" className="btn btn-primary" value="Login" />
                     </form>
