@@ -31,7 +31,7 @@ router.post(
 
         try {
             // Case 1: See if user exists
-            let user = await User.findOne({ email : email });
+            let user = await User.findOne({ email : email });       // Or    findOne({ email });
 
             if (user) {
                 return res
@@ -39,12 +39,15 @@ router.post(
                     .json({ errors: [{ msg: 'User already exists' }] });
             }
 
+            // Case 2: Get users gravatar
             const avatar = gravatar.url(email, {
                 s: '200',
-                r: 'pg',
+                r: 'pg', 
                 d: 'mm'
             });
 
+            // Create a new user instance when you have user data,
+            // this doesn't save user data in database yet, you should bcrypt password before saving into database
             user = new User({
                 name,
                 email,
