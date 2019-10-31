@@ -34,9 +34,7 @@ router.post(
             let user = await User.findOne({ email : email });       // Or    findOne({ email });
 
             if (user) {
-                return res
-                    .status(400)
-                    .json({ errors: [{ msg: 'User already exists' }] });
+                return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
             }
 
             // Case 2: Get users gravatar
@@ -55,10 +53,12 @@ router.post(
                 password
             });
 
+            // Case 3: Encrypt password
             const salt = await bcrypt.genSalt(10);
 
             user.password = await bcrypt.hash(password, salt);
 
+            // This code saves user data into database
             await user.save();
 
             const payload = {
