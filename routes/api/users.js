@@ -64,10 +64,11 @@ router.post(
             // Case 4: Return jsonwebtoken
             const payload = {
                 user: {
-                    id: user.id
+                    id: user.id    // _id or id gets available after you save user data into database
                 }
             };
 
+            // "jwtSecret" is imported from config/default.json. Should not display its value here.
             jwt.sign(
                 payload,
                 config.get('jwtSecret'),
