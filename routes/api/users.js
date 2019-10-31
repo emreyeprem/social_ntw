@@ -61,6 +61,7 @@ router.post(
             // This code saves user data into database
             await user.save();
 
+            // Case 4: Return jsonwebtoken
             const payload = {
                 user: {
                     id: user.id
