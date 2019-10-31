@@ -6,7 +6,7 @@ const connectDB = async () => {
     try {
         await mongoose.connect(db, {
             useNewUrlParser: true,
-            useCreateIndex: true,
+            useCreateIndex: true,     //This is added after you check user(inside users.js) in the database when registering
             useFindAndModify: false
         });
 
