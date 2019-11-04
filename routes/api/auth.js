@@ -8,9 +8,15 @@ const { check, validationResult } = require('express-validator/check');
 
 const User = require('../../models/User');
 
+
 // @route    GET api/auth
 // @desc     Test route
 // @access   Public
+// router.get('/', (req, res) => res.send('Auth route'));  // This line was used to check route at the beginning.
+// auth (parameter in below line) refers to line 4, makes this route protected.
+// req.user comes from token, remember we set req.user = decoded.user in middleware. we can access user anywhere in a protected route.
+// -password is used to remove(leave off) password from jwt to get only user.id
+
 router.get('/', auth, async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select('-password');
@@ -21,9 +27,11 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
+
 // @route    POST api/auth
 // @desc     Authenticate user & get token
 // @access   Public
+
 router.post(
     '/',
     [
