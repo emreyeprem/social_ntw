@@ -8,9 +8,11 @@ const { check, validationResult } = require('express-validator/check');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
-// @route    GET api/profile/me
+
+// @route    GET api/profile/me    // me -> wanna get specific profile (user currently logged in) based on user id in token
 // @desc     Get current users profile
 // @access   Private
+
 router.get('/me', auth, async (req, res) => {
     try {
         const profile = await Profile.findOne({ user: req.user.id }).populate(
@@ -32,6 +34,7 @@ router.get('/me', auth, async (req, res) => {
 // @route    GET api/profile
 // @desc     Create or update user profile
 // @access   Private
+
 router.post(
     '/',
     [
