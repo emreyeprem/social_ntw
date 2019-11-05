@@ -31,21 +31,18 @@ router.get('/me', auth, async (req, res) => {
     }
 });
 
-// @route    GET api/profile
+// @route    POST api/profile
 // @desc     Create or update user profile
 // @access   Private
+// We need to use auth middleware and express validation before req, res callbacks.
 
 router.post(
     '/',
     [
         auth,
         [
-            check('status', 'Status is required')
-                .not()
-                .isEmpty(),
-            check('skills', 'Skills is required')
-                .not()
-                .isEmpty()
+            check('status', 'Status is required').not().isEmpty(),
+            check('skills', 'Skills is required').not().isEmpty()
         ]
     ],
     async (req, res) => {
