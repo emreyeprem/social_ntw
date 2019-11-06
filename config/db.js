@@ -7,7 +7,7 @@ const connectDB = async () => {
         await mongoose.connect(db, {
             useNewUrlParser: true,
             useCreateIndex: true,     //This is added after you check user(inside users.js) in the database when registering
-            useFindAndModify: false   //This is added when we see "DeprecationWarning" in terminal after we finish 
+            useFindAndModify: false   //This is added if we see "DeprecationWarning" in terminal after we finish 
                                       // creating user profile in profile.js
         });
 
