@@ -86,6 +86,7 @@ router.post(
         if (instagram) profileFields.social.instagram = instagram;
 
         try {
+            // Update if there is a profile
             // Using upsert option (creates new doc if no match is found):
             let profile = await Profile.findOneAndUpdate(
                 { user: req.user.id },
