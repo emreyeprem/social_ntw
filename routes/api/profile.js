@@ -88,6 +88,7 @@ router.post(
         try {
             // Update if there is a profile
             // Using upsert option (creates new doc if no match is found):
+            // when we use "findOneAndUpdate", it may print DeprecationWarning in terminal. if so, Go to db.js file add "useFindAndModify: false"
             let profile = await Profile.findOneAndUpdate(
                 { user: req.user.id },
                 { $set: profileFields },
@@ -131,7 +132,7 @@ router.get('/user/:user_id', async (req, res) => {
             user: req.params.user_id
         }).populate('user', ['name', 'avatar']);
 
-        if (!profile) return res.status(400).json({ msg: 'Profile not found' });
+        if (!profile) return res.status(400).json({ msg: 'Profile not found for this user' });
 
         res.json(profile);
     } catch (err) {
