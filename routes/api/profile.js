@@ -200,6 +200,15 @@ router.put(
             description
         } = req.body;
 
+//   we can create newExp object using both ways below.
+//            const newExp = {
+//            title: title,
+//            company: company,
+//            location,
+//            from,
+//            to,
+//          }   
+           
         const newExp = {
             title,
             company,
