@@ -194,9 +194,9 @@ router.put('/experience', [ auth,
 //            const newExp = {
 //            title: title,
 //            company: company,
-//            location,
-//            from,
-//            to,
+//            location: location,
+//            from: from,
+//            to: to
 //          }   
            
         const newExp = {
