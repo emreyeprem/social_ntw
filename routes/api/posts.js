@@ -212,6 +212,7 @@ router.post(
 // // @route    DELETE api/posts/comment/:id/:comment_id
 // // @desc     Delete comment
 // // @access   Private
+// // We need to find the post by 'id', then delete the comment made for that post by 'comment id'
 router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
