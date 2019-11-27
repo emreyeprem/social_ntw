@@ -24,7 +24,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             setAlert('Password do not match', 'danger');
         }else {
             register({ name, email, password });
-            // we wanted to make the code below happen in redux action, therefore  it's commented out
+            // we wanted to make the code below happen in redux action not in component, therefore  it's commented out
             // console.log('Success')
             // const newUser = {
             //     name,
