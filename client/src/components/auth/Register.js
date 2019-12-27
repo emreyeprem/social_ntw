@@ -27,9 +27,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             // we wanted to make the code below happen in redux action not in component, therefore  it's commented out
             // console.log('Success')
             // const newUser = {
-            //     name,
-            //     email,
-            //     password
+            //     name: name,
+            //     email: email,
+            //     password: password
             // }
             // try {
             //     const config = {
