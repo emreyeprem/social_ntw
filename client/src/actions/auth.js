@@ -39,6 +39,12 @@ export const register = ({ name, email, password }) => async dispatch => {
             'Content-Type': 'application/json'
         }
     };
+            // const newUser = {
+            //     name: name,
+            //     email: email,
+            //     password: password
+            // }
+            // const body = JSON.stringify(newUser);   // Or you can create user object as below.
 
     const body = JSON.stringify({ name, email, password });
 
